@@ -3,10 +3,11 @@ package calculationsWithFractions;
 public class App {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Fraction fraction = new Fraction(60, 90);
-		fraction.simplify();
-		System.out.println(fraction);
+		Fraction fraction = new Fraction(2, 5);
+		Fraction fraction2 = new Fraction(2, 4);
+		Calculator calculator = new Calculator(fraction, fraction2);
+		Fraction sum = calculator.add();
+		System.out.println(sum);
 	}
 
 }

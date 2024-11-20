@@ -37,7 +37,7 @@ public class Fraction {
 		}
 	}
 	
-	public void changeDenominator(int newDenominator) {
+	public void increaseDenominator(int newDenominator) {
 		int multiplyer = newDenominator / denominator;
 		numerator *= multiplyer;
 		denominator = newDenominator;
