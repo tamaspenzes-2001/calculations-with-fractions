@@ -29,6 +29,12 @@ public class Calculator {
 		return new Fraction(numerator, fraction1.getDenominator());
 	}
 	
+	public Fraction multiply() {
+		int numerator = fraction1.getNumerator() * fraction2.getNumerator();
+		int denominator = fraction1.getDenominator() * fraction2.getDenominator();
+		return new Fraction(numerator, denominator);
+	}
+	
 	private void bringToLowestCommonDenominator() {
 		int denominator1 = fraction1.getDenominator();
 		int denominator2 = fraction2.getDenominator();
