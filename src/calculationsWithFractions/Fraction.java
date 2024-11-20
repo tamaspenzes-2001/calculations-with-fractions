@@ -8,6 +8,11 @@ public class Fraction {
 		this.numerator = numerator;
 		this.denominator = denominator;
 	}
+	
+	public Fraction(Fraction originalFraction) {
+		this.numerator = originalFraction.getNumerator();
+		this.denominator = originalFraction.getDenominator();
+	}
 
 	public int getNumerator() {
 		return numerator;
