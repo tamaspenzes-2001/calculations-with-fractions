@@ -17,6 +17,26 @@ public class Fraction {
 		return denominator;
 	}
 	
+	public void simplify() {
+		if (numerator == denominator) {
+			numerator = 1;
+			denominator = 1;
+		} else {
+			int biggerNumber = Math.max(numerator, denominator);
+			int divisor = 0;
+			for (int i = biggerNumber / 2; i > 1; i--) {
+				if (numerator % i == 0 && denominator % i == 0) {
+					divisor = i;
+					break;
+				}
+			}
+			if (divisor != 0) {
+				numerator /= divisor;
+				denominator /= divisor;
+			}
+		}
+	}
+	
 	public void changeDenominator(int newDenominator) {
 		int multiplyer = newDenominator / denominator;
 		numerator *= multiplyer;
