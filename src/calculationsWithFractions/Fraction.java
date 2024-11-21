@@ -22,10 +22,11 @@ public class Fraction {
 		return denominator;
 	}
 	
-	public void simplify() {
-		if (numerator == denominator) {
-			numerator = 1;
-			denominator = 1;
+	public Fraction getSimplifiedFraction() {
+		if (numerator == 0 && denominator == 0) {
+			return this;
+		} else if (numerator == denominator) {
+			return new Fraction(1, 1);
 		} else {
 			int biggerNumber = Math.max(numerator, denominator);
 			int divisor = 0;
@@ -35,9 +36,10 @@ public class Fraction {
 					break;
 				}
 			}
-			if (divisor != 0) {
-				numerator /= divisor;
-				denominator /= divisor;
+			if (divisor == 0) {
+				return this;
+			} else {
+				return new Fraction(numerator / divisor, denominator / divisor);
 			}
 		}
 	}
@@ -50,6 +52,10 @@ public class Fraction {
 	
 	public String toString() {
 		return numerator + "/" + denominator;
+	}
+	
+	public boolean equals(Fraction otherFraction) {
+		return numerator == otherFraction.getNumerator() && denominator == otherFraction.getDenominator();
 	}
 
 }

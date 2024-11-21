@@ -3,10 +3,14 @@ package calculationsWithFractions;
 public class Calculator {
 	private Fraction fraction1;
 	private Fraction fraction2;
+	private final Fraction fraction1Original;
+	private final Fraction fraction2Original;
 	
 	public Calculator(Fraction fraction1, Fraction fraction2) {
 		this.fraction1 = fraction1;
 		this.fraction2 = fraction2;
+		this.fraction1Original = new Fraction(fraction1);
+		this.fraction2Original = new Fraction(fraction2);
 	}
 
 	public Fraction getFraction1() {
@@ -15,6 +19,13 @@ public class Calculator {
 
 	public Fraction getFraction2() {
 		return fraction2;
+	}
+
+	public Fraction getFraction1Original() {
+		return fraction1Original;
+	}
+	public Fraction getFraction2Original() {
+		return fraction2Original;
 	}
 
 	public Fraction add() {
@@ -30,17 +41,17 @@ public class Calculator {
 	}
 	
 	public Fraction multiply(Fraction... reciprocal) {
-		Fraction multiplyer = fraction2;
+		Fraction multiplyer = fraction2Original;
 		if (reciprocal.length == 1) {
 			multiplyer = reciprocal[0];
 		}
-		int numerator = fraction1.getNumerator() * multiplyer.getNumerator();
-		int denominator = fraction1.getDenominator() * multiplyer.getDenominator();
+		int numerator = fraction1Original.getNumerator() * multiplyer.getNumerator();
+		int denominator = fraction1Original.getDenominator() * multiplyer.getDenominator();
 		return new Fraction(numerator, denominator);
 	}
 	
 	public Fraction divide() {
-		Fraction reciprocalOfFraction2 = new Fraction(fraction2.getDenominator(), fraction2.getNumerator());
+		Fraction reciprocalOfFraction2 = new Fraction(fraction2Original.getDenominator(), fraction2Original.getNumerator());
 		return multiply(reciprocalOfFraction2);
 	}
 	
@@ -58,5 +69,6 @@ public class Calculator {
 			fraction2.increaseDenominator(commonDenominator);
 		}
 	}
+
 
 }
