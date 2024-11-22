@@ -1,10 +1,10 @@
 package calculationsWithFractions;
 
 public class Fraction {
-	private int numerator;
-	private int denominator;
+	private long numerator;
+	private long denominator;
 	
-	public Fraction(int numerator, int denominator) {
+	public Fraction(long numerator, long denominator) {
 		this.numerator = numerator;
 		this.denominator = denominator;
 	}
@@ -14,11 +14,11 @@ public class Fraction {
 		this.denominator = originalFraction.getDenominator();
 	}
 
-	public int getNumerator() {
+	public long getNumerator() {
 		return numerator;
 	}
 
-	public int getDenominator() {
+	public long getDenominator() {
 		return denominator;
 	}
 	
@@ -28,9 +28,9 @@ public class Fraction {
 		} else if (numerator == denominator) {
 			return new Fraction(1, 1);
 		} else {
-			int biggerNumber = Math.max(numerator, denominator);
-			int divisor = 0;
-			for (int i = biggerNumber / 2; i > 1; i--) {
+			long biggerNumber = Math.max(numerator, denominator);
+			long divisor = 0;
+			for (long i = biggerNumber / 2; i > 1; i--) {
 				if (numerator % i == 0 && denominator % i == 0) {
 					divisor = i;
 					break;
@@ -44,8 +44,8 @@ public class Fraction {
 		}
 	}
 	
-	public void increaseDenominator(int newDenominator) {
-		int multiplyer = newDenominator / denominator;
+	public void increaseDenominator(long newDenominator) {
+		long multiplyer = newDenominator / denominator;
 		numerator *= multiplyer;
 		denominator = newDenominator;
 	}

@@ -8,8 +8,8 @@ public class App {
 	public static void main(String[] args) {
 		String fraction1Input = promptForFraction("First fraction (e.g. 4/9): ");
 		String fraction2Input = promptForFraction("Second fraction (e.g. 4/9): ");
-		int[] fraction1Arr = strToIntArr(fraction1Input);
-		int[] fraction2Arr = strToIntArr(fraction2Input);
+		long[] fraction1Arr = strToIntArr(fraction1Input);
+		long[] fraction2Arr = strToIntArr(fraction2Input);
 		Fraction fraction1 = new Fraction(fraction1Arr[0], fraction1Arr[1]);
 		Fraction fraction2 = new Fraction(fraction2Arr[0], fraction2Arr[1]);
 		Calculator calculator = new Calculator(fraction1, fraction2);
@@ -59,9 +59,9 @@ public class App {
 		}
 	}
 	
-	public static int[] strToIntArr(String str) {
+	public static long[] strToIntArr(String str) {
 		return Arrays.stream(str.split("/"))
-			    .mapToInt(Integer::parseInt)
+			    .mapToLong(Long::parseLong)
 			    .toArray();
 	}
 }
